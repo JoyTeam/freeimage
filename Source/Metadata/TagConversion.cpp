@@ -2,7 +2,7 @@
 // Tag to string conversion functions
 //
 // Design and implementation by
-// - Hervé Drolon <drolon@infonie.fr>
+// - Hervï¿½ Drolon <drolon@infonie.fr>
 //
 // This file is part of FreeImage 3
 //
@@ -21,6 +21,7 @@
 
 #ifdef _MSC_VER 
 #pragma warning (disable : 4786) // identifier was truncated to 'number' characters
+#pragma warning (disable : 4477) // format string 'xxx' requires an argument of type 'yyy'
 #endif
 
 #include "FreeImage.h"

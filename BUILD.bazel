@@ -1,0 +1,38 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "freeimage",
+    srcs = glob(
+        [
+            "Source/**/*.cpp",
+        ],
+        exclude = [
+            "Source/LibRawLite/**/*",
+            "Source/OpenEXR/**/*",
+            "Source/FreeImage/PluginEXR.cpp",
+            "Source/FreeImage/PluginRAW.cpp",
+            "**/_FI_*",
+        ],
+    ),
+    hdrs = glob([
+        "Source/**/*.h",
+    ]),
+    copts = [
+        "-DFREEIMAGE_LIB",
+        "-DLIBRAW_LIBRARY_BUILD",
+    ] + select({
+        "@bazel_tools//src/conditions:windows": [
+            "-DWIN32",
+        ],
+        "//conditions:default": [],
+    }),
+    includes = [
+        "Source",
+        "Source/FreeImage",
+        "Source/LibJXR/image/sys",
+        "Source/LibJXR/jxrgluelib",
+        "Source/Metadata",
+        "Source/Zlib",
+    ],
+    visibility = ["//visibility:public"],
+)

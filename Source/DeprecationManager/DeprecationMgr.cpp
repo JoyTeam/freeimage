@@ -21,6 +21,7 @@
 
 #ifdef _MSC_VER 
 #pragma warning (disable : 4786) // identifier was truncated to 'number' characters
+#pragma warning (disable : 4477) // format string 'xxx' requires an argument of type 'yyy'
 #endif 
 
 #ifdef _WIN32
